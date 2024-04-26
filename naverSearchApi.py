@@ -1,4 +1,5 @@
 from urllib.request import *
+from urllib.parse import quote
 import json
 import datetime
 
@@ -26,7 +27,7 @@ class NaverApi:
     def getNaverSearch(self, node, keyword, start, display):
         baseUrl = "https://openapi.naver.com/v1/search/"  # 네이버 api 기본 url
         node = f"{node}.json"
-        params = f"?query={keyword}&start={start}&display={display}"
+        params = f"?query={quote(keyword)}&start={start}&display={display}"
 
         url = baseUrl+node+params
 
